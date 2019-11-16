@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../components/Navbar";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 const LandingPage = () => {
-  // const [msg, setMsg] = useState("");
+  // const [userSignedIn, setUserSignedIn] = useState(false);
 
   // useEffect(() => {
-  //   fetchData();
+  //   fetchUser();
   // });
 
-  // const fetchData = async () => {
-  //   fetch("https://trashex.herokuapp.com/")
-  //     .then(res => res.text())
-  //     .then(res => setMsg(res))
+  // const fetchUser = async () => {
+  //   const res = await axios.get("/api/current_user");
+  //   console.log(res);
   // };
 
   return (

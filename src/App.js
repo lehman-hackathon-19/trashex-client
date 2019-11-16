@@ -1,22 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import './App.css';
+import LandingPage from './pages/LandingPage'
 
 function App() {
-  const [msg, setMsg] = useState("")
-
-  useEffect(() => {
-    fetchData();
-  })
-
-  const fetchData = async () => {
-    fetch('https://cogent-altar-259201.appspot.com/')
-      .then(response => console.log(response))
-  }
+  
 
   return (
-    <div className="App">
-      <h1>{msg}</h1>
-    </div>
+    <Router >
+      <Switch>
+        <Route to="/" component={LandingPage}></Route>
+      </Switch>
+      
+    </Router>
   );
 }
 

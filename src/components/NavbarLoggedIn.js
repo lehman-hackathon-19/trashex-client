@@ -19,12 +19,10 @@ const NavbarLoggedIn = () => {
       <div className="navbar-collapse collapse" id="collapsingNavbar">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a
-              className="btn btn-outline-dark my-2 my-sm-0 mr-2"
-              href="/"
-            >
+            <Link to="/request"
+              className="btn btn-outline-dark my-2 my-sm-0 mr-2">
               Schedule Your Pickup
-            </a>
+            </Link>
           </li>
         </ul>
         <ul className="navbar-nav">

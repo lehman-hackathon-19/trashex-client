@@ -39,9 +39,9 @@ class Pickups extends React.Component {
       <div className="Dashboard">
         <NavbarLoggedIn />
         <div className="container text-center pt-3">
-          <div style={{border:"1px solid black"}}>
+          <div className="table table-striped table-dark">
             {pickups.map(pickup =>
-              <div style={{borderBottom:"1px solid gray"}} onClick={() => this.completePickup({pickup})}>
+              <div style={{borderBottom:"1px solid gray", height: "50px"}} onClick={() => this.completePickup({pickup})}>
                 {pickup.name}
               </div>
             )}

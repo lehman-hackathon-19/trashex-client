@@ -11,8 +11,8 @@ const Navbar = () => {
       <button
         className="navbar-toggler"
         type="button"
-        data-toggle="collapse"
-        data-target="#collapsingNavbar"
+        dataToggle="collapse"
+        dataTarget="#collapsingNavbar"
       >
         <span className="navbar-toggler-icon"></span>
       </button>

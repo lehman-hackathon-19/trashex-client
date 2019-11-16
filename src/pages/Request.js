@@ -1,14 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import NavbarLoggedIn from "../components/NavbarLoggedIn";
 import GMap from "../components/GMap";
-var Faker = require('faker');
+import { Link } from "react-router-dom";
+var Faker = require("faker");
 
 class Request extends React.Component {
   constructor(props) {
     super(props);
     this.requestPickup = this.requestPickup.bind(this);
     this.state = {
-      isLoading: false,
+      isLoading: false
     };
   }
 
@@ -17,14 +18,14 @@ class Request extends React.Component {
     var suf = Faker.address.citySuffix();
     this.setState({ isLoading: true });
     fetch(`http://localhost:5000/api/pickups/`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({
-        "prefix": pre,
-        "suffix": suf
+        prefix: pre,
+        suffix: suf
       })
     })
-    .then(response => response.json())
-    .then(data => this.setState({ isLoading: false }));
+      .then(response => response.json())
+      .then(data => this.setState({ isLoading: false }));
   }
 
   render() {
@@ -36,14 +37,23 @@ class Request extends React.Component {
       <div className="Dashboard">
         <NavbarLoggedIn />
         <GMap />
-        <div style={{display:"flex",alignContent:"center",justifyContent:"center"}}className="container text-center t-3">    
-          <div style={{width:"200px", marginTop:"20px",height:"40px",border:"4px solid black"}} onClick={() => this.requestPickup()}>
-            <p style={{fontSize:"20px"}}>REQUEST PICKUP  </p>
-          </div>
+        <div className="container text-center">
+          <button
+            className="btn btn-outline-dark mt-2 mr-2"
+            onClick={() => this.requestPickup()}
+          >
+            Request Pickups
+          </button>
+
+          <Link to="/pickups">
+            <button className="btn btn-outline-success mt-2 ml-2">
+              Go To Pickups{" "}
+            </button>
+          </Link>
         </div>
       </div>
     );
   }
-};
+}
 
 export default Request;

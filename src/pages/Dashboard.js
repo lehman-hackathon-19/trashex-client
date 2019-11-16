@@ -27,12 +27,17 @@ const Dashboard = () => {
     const total = plasticCount + glassCount + metalCount;
     const object = {
       totalCount: total
-    }
+    };
     const res = await axios("/api/current_user");
     const id = await res.data._id;
-    console.log(id)
-    const saveResult = await axios.put(`http://localhost:5000/users/${id}`, object);
+    const saveResult = await axios.put(
+      `http://localhost:5000/users/${id}`,
+      object
+    );
     setTotalCount(saveResult.data.totalCount);
+    setPlasticCount(0);
+    setMetalCount(0);
+    setGlassCount(0);
   };
 
   const handleClick = (type, operation) => {

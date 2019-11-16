@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 
 const NavbarLoggedIn = () => {
   const [userFullName, setUserFullName] = useState("");
@@ -10,8 +10,8 @@ const NavbarLoggedIn = () => {
   });
 
   const fetchUser = async () => {
-    const res = await axios.get('/api/current_user')
-    setUserFullName(res.data.name)
+    const res = await axios.get("/api/current_user");
+    setUserFullName(res.data.name);
   };
 
   return (

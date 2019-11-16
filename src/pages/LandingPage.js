@@ -1,20 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import NavBar from "../components/Navbar";
-import axios from "axios";
-import { Redirect } from "react-router-dom";
 
 const LandingPage = () => {
-  // const [userSignedIn, setUserSignedIn] = useState(false);
-
-  // useEffect(() => {
-  //   fetchUser();
-  // });
-
-  // const fetchUser = async () => {
-  //   const res = await axios.get("/api/current_user");
-  //   console.log(res);
-  // };
-
   return (
     <div className="LandingPage">
       <NavBar />

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 const NavbarLoggedIn = () => {
@@ -22,7 +21,7 @@ const NavbarLoggedIn = () => {
           <li className="nav-item">
             <a
               className="btn btn-outline-dark my-2 my-sm-0 mr-2"
-              href="/auth/google"
+              href="/"
             >
               Schedule Your Pickup
             </a>
@@ -32,7 +31,7 @@ const NavbarLoggedIn = () => {
           <li className="nav-item">
             <a
               className="btn btn-outline-dark my-2 my-sm-0"
-              href="/auth/google"
+              href="/api/logout"
             >
               Log Out
             </a>

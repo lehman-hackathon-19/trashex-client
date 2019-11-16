@@ -1,12 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const LoginHandler = () => {
+    fetch("https://trashex.herokuapp.com/auth/google")
+      .then(res => res.text())
+      .then(res => console.log(res));
+  }
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <i className="fas fa-recycle mr-2" style={{ color: "white" }}></i>
-      <a className="navbar-brand" href="#">
+      <Link to="/" className="navbar-brand">
         The Trash Exchange
-      </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -18,7 +24,7 @@ const Navbar = () => {
       <div className="navbar-collapse collapse" id="collapsingNavbar">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <button className="btn btn-outline-success my-2 my-sm-0" href="#">
+            <button className="btn btn-outline-success my-2 my-sm-0" onClick={LoginHandler}>
               Log In
             </button>
           </li>

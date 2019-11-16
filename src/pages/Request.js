@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import NavbarLoggedIn from "../components/NavbarLoggedIn";
+import GMap from "../components/GMap";
+var Faker = require('faker');
 
 class Request extends React.Component {
   constructor(props) {
@@ -11,9 +13,15 @@ class Request extends React.Component {
   }
 
   requestPickup() {
+    var pre = Faker.address.cityPrefix();
+    var suf = Faker.address.citySuffix();
     this.setState({ isLoading: true });
     fetch(`http://localhost:5000/api/pickups/`, {
-      method: 'POST'
+      method: 'POST',
+      body: JSON.stringify({
+        "prefix": pre,
+        "suffix": suf
+      })
     })
     .then(response => response.json())
     .then(data => this.setState({ isLoading: false }));
@@ -27,9 +35,10 @@ class Request extends React.Component {
     return (
       <div className="Dashboard">
         <NavbarLoggedIn />
-        <div className="container text-center pt-3">    
-          <div style={{width:"80px", height:"40px",border:"2px solid gray"}} onClick={() => this.requestPickup()}>
-            Request Pickup
+        <GMap />
+        <div style={{display:"flex",alignContent:"center",justifyContent:"center"}}className="container text-center t-3">    
+          <div style={{width:"200px", marginTop:"20px",height:"40px",border:"4px solid black"}} onClick={() => this.requestPickup()}>
+            <p style={{fontSize:"20px"}}>REQUEST PICKUP  </p>
           </div>
         </div>
       </div>
